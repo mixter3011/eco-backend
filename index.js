@@ -15,7 +15,9 @@ app.use(cors({
 
 app.use("/api/auth", authRouter);
 app.use("/api/ask", askRouter);
-
+app.get("/", (req,res) => {
+    res.send("test-route")
+})
 app.listen(port, async() => {
     await connectToDB(process.env.MONGO_URI)
     console.log(`server alive at http://localhost:${port}`);
